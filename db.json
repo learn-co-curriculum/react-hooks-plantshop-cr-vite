@@ -1,46 +1,118 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "id": "d95a",
+      "name": "sss",
+      "image": "",
+      "price": 251
+    },
+    {
+      "id": "20d3",
+      "name": "sdf",
+      "image": "",
+      "price": "123"
+    },
+    {
+      "id": "9fda",
+      "name": "wow",
+      "image": "",
+      "price": "56"
+    },
+    {
+      "id": "bd35",
+      "name": "fgh",
+      "image": "ghg",
+      "price": "2151"
+    },
+    {
+      "id": "30cd",
+      "name": "",
+      "image": "",
+      "price": "554.25"
+    },
+    {
+      "id": "a73b",
+      "name": "ad",
+      "image": "s",
+      "price": ""
+    },
+    {
+      "id": "b44b",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
+    },
+    {
+      "id": "289b",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
+    },
+    {
+      "id": "7c85",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
+    },
+    {
+      "id": "bd31",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
+    },
+    {
+      "id": "14f0",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
+    },
+    {
+      "id": "331d",
+      "name": "ad",
+      "image": "s",
+      "price": "5"
     }
   ]
 }
