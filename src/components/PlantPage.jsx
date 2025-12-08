@@ -25,6 +25,10 @@ function PlantPage() {
       });
   }, []);
 
+  function handleNewPlant(newPlant) {
+    setPlants(prevPlants => [...prevPlants, newPlant])
+  }
+
   function handleSearchChange(term) {
     setSearchTerm(term);
   }
@@ -35,7 +39,7 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onAddPlant={handleNewPlant}/>
       <Search onSearch={handleSearchChange} term={searchTerm}/>
       <PlantList plants={plantsToDisplay} loading={loading} error={error}/>
     </main>
