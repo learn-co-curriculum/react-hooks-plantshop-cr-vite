@@ -1,93 +1,27 @@
-# Phase 2 Code Challenge: Plantsy
+## Plant Shop React Application
 
-## Demo
+This project is a React-based Plant Shop application that demonstrates core concepts such as state management, data fetching, controlled components, and conditional rendering. The app connects to a local json-server backend to retrieve and manage plant data. Users can view plants on page load, add new plants, search by name, and toggle stock status. The App component serves as the central state manager, ensuring a clean and predictable data flow. All UI updates are driven by state changes, following React’s unidirectional data pattern. The project emphasizes component separation and maintainable structure. It provides a practical example of building a small but complete CRUD-style frontend application.
 
-Use this gif as an example of how the app should work.
+## Component Structure
 
-![Demo GIF](./demo.gif)
+The App component owns the main state, including the plants array and search term. PlantPage acts as a layout container for the form, search bar, and plant list. PlantList receives plant data and renders multiple PlantCard components. Each PlantCard displays individual plant details and handles stock toggling via a callback. NewPlantForm manages controlled inputs and sends new plant data upward. Search captures user input and updates the search state in App. This structure keeps logic centralized and components reusable. Data flows down through props, while actions flow upward through callback functions.
 
-## Instructions
+## Data Fetching
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+When the application loads, App uses useEffect to fetch plant data from the backend. The request runs once on mount and updates the plants state with the retrieved array. Once state updates, React re-renders and displays the plant list. Error handling ensures failed requests are logged. The plants state is initialized as an empty array to prevent rendering issues. This setup ensures all plants appear automatically on page load.
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Adding a New Plant
 
-## Setup
+The NewPlantForm uses controlled inputs to manage form data. On submission, it sends a POST request to the backend with the plant information. After a successful response, the new plant is added to the plants state in App. The UI updates instantly without refreshing the page. The form resets after submission for better user experience. This demonstrates lifting state up and updating shared data from child components.
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+## Search Functionality
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+The Search component updates a searchTerm state stored in App. Before rendering, App filters the plants array using the includes() method. The filtering is case-insensitive for better usability. When the search input is cleared, all plants display again automatically. This approach keeps filtering logic centralized and avoids modifying the original data. The list updates dynamically as the user types.
 
-## Endpoints
+## Sold Out Toggle
 
-The base URL for your backend is: `http://localhost:6001`
+Each PlantCard displays a button showing whether the plant is in stock or sold out. Clicking the button triggers a function from App that toggles the isSoldOut property. The update is done immutably using array mapping. After state changes, React re-renders and updates the button label. This demonstrates conditional rendering and state-driven UI updates. The logic remains centralized while the UI remains clean and responsive.
 
-## Deliverables
+## Running the Application
 
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
-```
-
-#### POST `/plants`
-
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
-
-Example Response:
-
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+Install dependencies using npm install. Start the backend with npx json-server --watch db.json --port 6001. Then run the React app using npm run dev. Ensure the backend is running before interacting with the app. The project demonstrates essential React patterns used in real-world applications.
