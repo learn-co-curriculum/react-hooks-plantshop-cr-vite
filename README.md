@@ -1,93 +1,95 @@
-# Phase 2 Code Challenge: Plantsy
+# Plant Shop (React + Vite)
 
-## Demo
+## Description
 
-Use this gif as an example of how the app should work.
+Plant Shop is a React frontend connected to a REST backend for managing a simple plant inventory.
 
-![Demo GIF](./demo.gif)
+## Features
 
-## Instructions
+- Fetch and display all plants on initial page load.
+- Add a new plant via form submission.
+- Mark a plant as sold out in the UI (non-persisting toggle).
+- Search plants by name with live filtering.
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Screenshot
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+![Completed Plant Shop UI](docs/images/completed-app.svg)
 
-## Setup
+## Tech Stack
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+- React 18
+- Vite
+- Fetch API
+- Jest + React Testing Library
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+## Getting Started
 
-## Endpoints
+1. Install dependencies:
 
-The base URL for your backend is: `http://localhost:6001`
+   ```bash
+   npm install
+   ```
 
-## Deliverables
+2. Start the backend:
 
-As a user:
+   ```bash
+   npm run server
+   ```
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+3. In a new terminal, start the frontend:
 
-### Endpoints for Core Deliverables
+   ```bash
+   npm run dev
+   ```
 
-#### GET /plants
+4. Open the Vite URL shown in terminal.
 
-Example Response:
+## API Contract
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+The UI expects:
+
+- `GET http://localhost:6001/plants`
+- `POST http://localhost:6001/plants`
+
+## Project Structure
+
+- `src/components/PlantPage.jsx` — data fetching, create flow, search filtering
+- `src/components/NewPlantForm.jsx` — controlled form + submit handling
+- `src/components/PlantList.jsx` — maps filtered plants to cards
+- `src/components/PlantCard.jsx` — card UI + sold-out toggle button
+- `src/components/Search.jsx` — controlled search input
+
+## Testing
+
+```bash
+npm test
 ```
 
-#### POST `/plants`
+## Contributing
 
-Required Headers:
+1. Create a branch from `main`.
+2. Make focused changes with clear commit messages.
+3. Push your branch and open a pull request.
 
-```js
-{
-  "Content-Type": "application/json"
-}
+## Project Status
+
+Active learning project for React hooks + backend integration.
+
+## Branch Cleanup (GitHub)
+
+Delete merged remote branches:
+
+```bash
+git fetch --prune
+git branch -r --merged origin/main | grep -v "origin/main" | sed 's/origin\///' | xargs -r -n 1 git push origin --delete
 ```
 
-Request Object:
+Delete fully merged local branches:
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+```bash
+git branch --merged | grep -v "^*" | grep -v " main$" | xargs -r git branch -d
 ```
 
-Example Response:
+## License
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+See [LICENSE.md](LICENSE.md).
