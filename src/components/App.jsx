@@ -1,3 +1,4 @@
+// Import necessary states, effects, components
 import React from "react";
 import Header from "./Header";
 import PlantPage from "./PlantPage";
