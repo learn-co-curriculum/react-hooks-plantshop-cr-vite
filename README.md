@@ -1,87 +1,74 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy Plant Shop
 
-## Demo
+Plantsy is a React plant shop admin app connected to a JSON backend. The app loads plant data on page load, lets users add plants with a form submission, supports local sold-out toggling, and filters plants by a search query.
 
-Use this gif as an example of how the app should work.
+## Preview
 
-![Demo GIF](./demo.gif)
+![Plantsy demo](./demo.gif)
 
-## Instructions
+## Features
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+- Fetches all plants from `http://localhost:6001/plants` when the app loads
+- Creates a new plant with a `POST /plants` request and renders it immediately
+- Marks a plant as `Out of Stock` in the UI without persisting the change
+- Filters visible plants by name using the search input and `includes()`
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Component Design
 
-## Setup
+The app keeps shared state in `PlantPage` and passes props down to presentational components.
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+| Component | State | Props | Responsibility |
+| --- | --- | --- | --- |
+| `PlantPage` | `plants`, `searchTerm` | none | Fetches data, creates plants, filters the visible list |
+| `NewPlantForm` | `formData` | `onAddPlant` | Tracks controlled inputs and submits new plant data |
+| `Search` | none | `searchTerm`, `onSearchChange` | Displays and updates the current search query |
+| `PlantList` | none | `plants` | Renders all visible plant cards |
+| `PlantCard` | `isInStock` | `plant` | Displays a plant and toggles local stock status |
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+## Getting Started
 
-## Endpoints
+1. Install dependencies:
 
-The base URL for your backend is: `http://localhost:6001`
-
-## Deliverables
-
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```bash
+npm install
 ```
 
-#### POST `/plants`
+2. Start the backend server:
 
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
+```bash
+npm run server
 ```
 
-Request Object:
+3. In a second terminal, start the React app:
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+```bash
+npm run dev
 ```
 
-Example Response:
+4. Open the app in your browser using the local Vite URL shown in the terminal.
+
+## Testing
+
+Run the test suite with:
+
+```bash
+npm test
+```
+
+## API
+
+Base URL:
+
+```text
+http://localhost:6001
+```
+
+Endpoints used by the app:
+
+- `GET /plants`
+- `POST /plants`
+
+Example plant object:
 
 ```json
 {
@@ -91,3 +78,18 @@ Example Response:
   "price": 15.99
 }
 ```
+
+Example `POST /plants` body:
+
+```json
+{
+  "name": "Snake Plant",
+  "image": "./images/snake-plant.jpg",
+  "price": 22.5
+}
+```
+
+## Project Notes
+
+- Sold-out status is intentionally non-persisting for this lab and only updates the rendered card
+- Search is case-insensitive so users can find plants with partial matches
