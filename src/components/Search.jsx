@@ -9,6 +9,7 @@ function Search({ searchTerm, onSearchChange }) {
         id="search"
         placeholder="Type a name to search..."
         value={searchTerm}
+        // Fire the function passed from parent on every keystroke
         onChange={(e) => onSearchChange(e.target.value)}
       />
     </div>

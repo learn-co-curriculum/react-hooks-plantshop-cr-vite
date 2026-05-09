@@ -7,27 +7,30 @@ function PlantPage() {
   const [plants, setPlants] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // GET Request: See all plants on page load
+  // Fetch plants on page load
   useEffect(() => {
     fetch("http://localhost:6001/plants")
       .then((r) => r.json())
-      .then((data) => setPlants(data));
+      .then((plantsArray) => setPlants(plantsArray));
   }, []);
 
-  // Handler for adding a new plant (State update)
+  // Callback function to add a newly created plant to state
   function handleAddPlant(newPlant) {
-    setPlants((prevPlants) => [...prevPlants, newPlant]);
+    setPlants([...plants, newPlant]);
   }
 
-  // Logic: Search filter (Includes empty string check naturally)
+  // Filter plants based on the search term (case-insensitive)
   const displayedPlants = plants.filter((plant) => {
     return plant.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   return (
     <main>
+      {/* Pass the callback to the form */}
       <NewPlantForm onAddPlant={handleAddPlant} />
+      {/* Pass state and setter to search */}
       <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      {/* Pass the FILTERED array of plants down */}
       <PlantList plants={displayedPlants} />
     </main>
   );
