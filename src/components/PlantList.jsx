@@ -1,11 +1,12 @@
-import React from "react";
 import PlantCard from "./PlantCard";
 
 function PlantList({ plants }) {
   return (
-    <ul className="cards">
+    <ul style={{ listStyle: "none", padding: 0, display: "grid", gap: 16 }}>
       {plants.map((plant) => (
-        <PlantCard key={plant.id} plant={plant} />
+        <li key={plant.id} data-testid="plant-item">
+          <PlantCard plant={plant} />
+        </li>
       ))}
     </ul>
   );

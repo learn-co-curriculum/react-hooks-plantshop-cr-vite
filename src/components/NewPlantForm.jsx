@@ -1,80 +1,77 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function NewPlantForm({ onAddPlant }) {
-  // Initial state object to keep tracking clean
-  const [formData, setFormData] = useState({
-    name: "",
-    image: "",
-    price: "",
-  });
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
 
-  // Universal change handler
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  }
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    // Prepare data - parsing price to a number as requested
-    const newPlant = {
-      ...formData,
-      price: parseFloat(formData.price),
+    const newPlantData = {
+      name: name.trim(),
+      image: image.trim(),
+      price: Number(price),
     };
 
-    fetch("http://localhost:6001/plants", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPlant),
-    })
-      .then((r) => r.json())
-      .then((savedPlant) => {
-        onAddPlant(savedPlant);
-        // Reset form
-        setFormData({
-          name: "",
-          image: "",
-          price: "",
-        });
-      })
-      .catch((err) => console.error("Error adding plant:", err));
+    try {
+      const res = await fetch("http://localhost:6001/plants", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newPlantData),
+      });
+      if (!res.ok) throw new Error("Failed to create plant");
+      const created = await res.json();
+      onAddPlant(created);
+      setName("");
+      setImage("");
+      setPrice("");
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
-    <div className="new-plant-form">
-      <h2>New Plant</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Plant name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={formData.image}
-          onChange={handleChange}
-        />
-        <input
-          type="number"
-          name="price"
-          step="0.01"
-          placeholder="Price"
-          value={formData.price}
-          onChange={handleChange}
-        />
+    <form onSubmit={handleSubmit} style={{ margin: "16px 0" }}>
+      <h2>Add a Plant</h2>
+      <div style={{ display: "grid", gap: 8, maxWidth: 420 }}>
+        <label>
+          Name
+          <input
+            type="text"
+            value={name}
+            required
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Plant name"   // exact text the tests expect
+          />
+        </label>
+
+        <label>
+          Image URL
+          <input
+            type="url"
+            value={image}
+            required
+            onChange={(e) => setImage(e.target.value)}
+            placeholder="Image URL"    // exact text the tests expect
+          />
+        </label>
+
+        <label>
+          Price
+          <input
+            type="number"
+            step="0.01"
+            value={price}
+            required
+            onChange={(e) => setPrice(e.target.value)}
+            placeholder="Price"        // exact text the tests expect
+          />
+        </label>
+
         <button type="submit">Add Plant</button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 
