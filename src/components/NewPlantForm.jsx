@@ -18,33 +18,25 @@ function NewPlantForm({ onAddPlant }) {
 
   // Sends POST request to backend
   function handleSubmit(event) {
-    event.preventDefault()
+  event.preventDefault()
 
-    const newPlant = {
-      ...formData,
-      price: Number(formData.price),
-      inStock: true,
-    }
+  fetch("http://localhost:6001/plants", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      onAddPlant(data)
 
-    fetch("http://localhost:6001/plants", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPlant),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Updates App state with new plant
-        onAddPlant(data)
-
-        // Resets form after submission
-        setFormData({
-          name: "",
-          image: "",
-          price: "",
-        })
+      setFormData({
+        name: "",
+        image: "",
+        price: "",
       })
+    })
       .catch((error) => console.error("Error adding plant:", error))
   }
 
