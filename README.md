@@ -91,3 +91,25 @@ Example Response:
   "price": 15.99
 }
 ```
+
+# Plant Shop Application 🪴
+
+A React-based frontend application for managing a local plant shop's inventory. 
+
+## Visuals
+![Plant Shop Application displaying a grid of plants and a search bar](./Screenshot from 2026-05-10 20-50-50.png)
+
+## Description
+This project connects a React frontend to a local mock backend API. It allows users to view the current plant inventory, add new plants via a controlled form, mark specific plants as sold out (optimistic/local UI update), and filter the inventory by plant name.
+
+## Features
+* **View Inventory:** Fetches and displays all plants from the database on initial load.
+* **Add Plants:** Users can submit new plants (name, image URL, price) which are POSTed to the backend and immediately rendered.
+* **Search Functionality:** A live-search bar filters the plant list by name without mutating the original state.
+* **Stock Tracking:** Users can toggle individual plants in and out of stock locally.
+
+## Installation
+1. Clone the repository down to your local machine.
+2. Run `npm install` to install dependencies.
+3. In a separate terminal, start the backend server: `npm run server` (runs json-server on port 6001).
+4. Start the React application: `npm start` (runs on port 3000).
