@@ -13,7 +13,7 @@ function NewPlantForm({ onAddPlant }) {
     const plantData = {
       name,
       image,
-      price: parseFloat(price), // backend expects a number
+      price,
     };
 
     // POST the new plant to the backend
