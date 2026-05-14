@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function NewPlantForm() {
-  const [product, setProduct] = useState("");
+function NewPlantForm({ plants, onAddPlant }) {
+  const [plants, setPlants] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -11,13 +11,13 @@ function NewPlantForm() {
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify(product),
+        body: JSON.stringify(plants),
     })
         .then(res = res.json())
-        .then((response) => {
-            console.log(response);
+        .then((newPlant) => {
+            onAddPlant(newPlant);
             
-            setUser ({
+            setPlants ({
                 name: "",
                 image: "",
                 price: "",
@@ -33,9 +33,9 @@ function NewPlantForm() {
           type="text" 
           name="name" 
           placeholder="Plant name" 
-          value={product.name}
+          value={name}
           onChange={(e) => {
-            {setProduct({...product, name: e.target.value})}
+            {setPlants({...product, name: e.target.value})}
           }} 
           required
         />
@@ -43,9 +43,9 @@ function NewPlantForm() {
           type="text" 
           name="image" 
           placeholder="Image URL" 
-          value={product.image}
+          value={image}
           onChange={(e) => {
-            {setProduct({...product, image: e.target.value})}
+            {setPlants({...product, image: e.target.value})}
           }} 
           required
         />
@@ -53,9 +53,9 @@ function NewPlantForm() {
           type="number" 
           name="price" step="0.01" 
           placeholder="Price" 
-          value={product.price}
+          value={price}
           onChange={(e) => {
-            {setProduct({...product, price: e.target.value})}
+            {setPlants({...product, price: e.target.value})}
           }} 
           required
         />
