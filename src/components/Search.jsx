@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-function Search() {
-   const [search, setSearch] = useState("");
+function Search({ search,onSearch }) {
 
   return (
     <div className="searchbar">
@@ -10,7 +9,8 @@ function Search() {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+        onChange={(e) => onSearch(e.target.value)}
       />
     </div>
   );

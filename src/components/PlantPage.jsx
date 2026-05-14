@@ -15,7 +15,7 @@ function PlantPage({ plants = [], onAddPlant }) {
   return (
     <main>
       <NewPlantForm onAddPlant={onAddPlant} />
-      <Search />
+      <Search search={search} onSearch={setSearch} />
       <PlantList plants={filteredPlants} />
     </main>
   );

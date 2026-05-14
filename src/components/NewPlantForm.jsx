@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 function NewPlantForm({ onAddPlant }) {
-  const [plants, setPlants] = useState("");
+  const [formData, setFormData] = useState({ name: "", image: "", price: "" });
+  const { name, image, price } = formData;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +18,7 @@ function NewPlantForm({ onAddPlant }) {
         .then((newPlant) => {
             onAddPlant(newPlant);
             
-            setPlants ({
+            setFormData ({
                 name: "",
                 image: "",
                 price: "",
@@ -33,7 +34,7 @@ function NewPlantForm({ onAddPlant }) {
           type="text" 
           name="name" 
           placeholder="Plant name" 
-          value={plants.name}
+          value={formData.name}
           onChange={(e) => {
             {setPlants({...plants, name: e.target.value})}
           }} 
@@ -43,7 +44,7 @@ function NewPlantForm({ onAddPlant }) {
           type="text" 
           name="image" 
           placeholder="Image URL" 
-          value={plants.image}
+          value={formData.image}
           onChange={(e) => {
             {setPlants({...plants, image: e.target.value})}
           }} 
@@ -53,7 +54,7 @@ function NewPlantForm({ onAddPlant }) {
           type="number" 
           name="price" step="0.01" 
           placeholder="Price" 
-          value={plants.price}
+          value={formData.price}
           onChange={(e) => {
             {setPlants({...plants, price: e.target.value})}
           }} 
