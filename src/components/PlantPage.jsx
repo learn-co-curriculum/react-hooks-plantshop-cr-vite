@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
-import Search from "./Search";
+import Search from "./Search"
 
-function PlantPage() {
+function PlantPage({ plants = [], onAddPlant }) {
+  const [search, setSearch] = useState("");
+
+  const filteredPlants = plants.filter((p) => {
+    const matchesSearch =
+      p.name.toLowerCase().includes(search.toLowerCase())
+    return matchesSearch;
+  });
+
   return (
     <main>
-      <NewPlantForm />
-      <Search />
-      <PlantList />
+      <NewPlantForm onAddPlant={onAddPlant} />
+      <Search search={search} onSearch={setSearch} />
+      <PlantList plants={filteredPlants} />
     </main>
   );
 }
