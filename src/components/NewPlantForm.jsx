@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function NewPlantForm({ onAddPlant }) {
   const [formData, setFormData] = useState({ name: "", image: "", price: "" });
-  const { name, image, price } = formData;
+  const { name, image, price, status } = formData;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -12,7 +12,7 @@ function NewPlantForm({ onAddPlant }) {
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify({ name, image, price: parseFloat(price) }),
+        body: JSON.stringify({ name, image, price: parseFloat(price), status }),
     })
         .then((res) => res.json())
         .then((newPlant) => {
@@ -22,6 +22,7 @@ function NewPlantForm({ onAddPlant }) {
                 name: "",
                 image: "",
                 price: "",
+                status: ""
             });
         });
   }
@@ -60,6 +61,31 @@ function NewPlantForm({ onAddPlant }) {
           }} 
           required
         />
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px"}}>
+          <label htmlFor="" >
+            <input type="radio" 
+              value={"In Stock"} 
+              checked={formData.status === 'In Stock'} 
+              onChange={(e) => 
+                {setFormData({...formData, status: e.target.value})}} 
+              required
+              style={{display: "flex", gap: "5px"}} 
+            />
+            <span>In Stock</span>
+          </label>
+
+          <label htmlFor="">
+            <input type="radio" 
+              value={"Out of Stock"} 
+              checked={formData.status === 'Out of Stock'} 
+              onChange={(e) => 
+                {setFormData({...formData, status: e.target.value})}} 
+              required
+              style={{display: "flex", gap: "5px"}} 
+            />
+            <span>Out of Stock</span>
+          </label>
+        </div>
 
         <button type="submit">Add Plant</button>
       </form>
