@@ -11,9 +11,9 @@ function NewPlantForm({ onAddPlant }) {
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify(plants),
+        body: JSON.stringify({ name, image, price: parseFloat(price) }),
     })
-        .then(res = res.json())
+        .then((res) => res.json())
         .then((newPlant) => {
             onAddPlant(newPlant);
             
