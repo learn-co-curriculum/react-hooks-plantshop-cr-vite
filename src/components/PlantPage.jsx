@@ -3,8 +3,8 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search"
 
-function PlantPage({ plants, onAddPlant }) {
-  const [search, setSearch] = useState('');
+function PlantPage({ plants = [], onAddPlant }) {
+  const [search, setSearch] = useState("");
 
   const filtered = plants.filter((p) => {
     const matchesSearch =

@@ -1,11 +1,11 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({ products }) {
+function PlantList({ plants }) {
   return (
     <ul className="cards">
-      {products.map((product) => {
-        <PlantCard key={product.id} product={product} />
+      {plants.map((plant) => {
+        <PlantCard key={plant.id} product={plant} />
       })}
     </ul>
   );

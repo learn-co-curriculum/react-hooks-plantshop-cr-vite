@@ -16,7 +16,7 @@ function App() {
       .catch(() => setError('Could not connect to the server.'))
   }, []);
 
-  function handleNewPlant(newPlant) {
+  function handleAddPlant(newPlant) {
     setPlants((prev) => [...prev, newPlant]);
   }
 
@@ -24,7 +24,7 @@ function App() {
     <div className="app">
       <Header />
       {error && <p style={{color: "red"}}>{error}</p>}
-      <PlantPage />
+      <PlantPage plants={plants} onAddPlant={handleAddPlant}/>
     </div>
   );
 }

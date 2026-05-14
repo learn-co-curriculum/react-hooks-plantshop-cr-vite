@@ -1,7 +1,7 @@
 import React from "react";
 
-function PlantCard({ product }) {
-  const { image, name, price } = product;
+function PlantCard({ plant }) {
+  const { image, name, price } = plant;
 
   return (
     <li className="card" data-testid="plant-item">
