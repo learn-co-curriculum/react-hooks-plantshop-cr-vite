@@ -6,12 +6,12 @@ function NewPlantForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/plants", {
+    fetch("http://localhost:6001/plants", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify(plant),
+        body: JSON.stringify(product),
     })
         .then(res = res.json())
         .then((response) => {
