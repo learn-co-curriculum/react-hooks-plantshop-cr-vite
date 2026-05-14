@@ -36,7 +36,7 @@ function NewPlantForm({ onAddPlant }) {
           placeholder="Plant name" 
           value={formData.name}
           onChange={(e) => {
-            {setFormData({...plants, name: e.target.value})}
+            {setFormData({...formData, name: e.target.value})}
           }} 
           required
         />
@@ -46,7 +46,7 @@ function NewPlantForm({ onAddPlant }) {
           placeholder="Image URL" 
           value={formData.image}
           onChange={(e) => {
-            {setFormData({...plants, image: e.target.value})}
+            {setFormData({...formData, image: e.target.value})}
           }} 
           required
         />
@@ -56,7 +56,7 @@ function NewPlantForm({ onAddPlant }) {
           placeholder="Price" 
           value={formData.price}
           onChange={(e) => {
-            {setFormData({...plants, price: e.target.value})}
+            {setFormData({...formData, price: e.target.value})}
           }} 
           required
         />
