@@ -38,6 +38,18 @@ As a user:
 3. I can mark a plant as "sold out".
 4. I can search for plants by their name and see a filtered list of plants.
 
+## Features
+
+- Fetches all plants from the backend on page load using `useEffect`.
+- Displays plant cards with image, name, price, and stock toggle.
+- Adds new plants via the form and persists them with a `POST /plants` request.
+- Filters the visible plant list in real time as the user types in search.
+- Keeps sold-out status locally using component state.
+
+## Screenshot
+
+![Plantsy Demo](./demo.gif)
+
 ### Endpoints for Core Deliverables
 
 #### GET /plants
