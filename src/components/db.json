@@ -1,0 +1,18 @@
+{
+    "plants": [
+        {
+            "id": 1,
+            "name": "Aloe Vera",
+            "image": "https://www.google.com/imgres?q=aloe%20vera%20plant%20images&imgurl=https%3A%2F%2Fwww.almanac.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2For%2Fpublic%2Fimage_nodes%2Faloe-vera-white-pot_sunwand24-ss_edit_0.jpg%3Fitok%3DuOJaHAeR&imgrefurl=https%3A%2F%2Fwww.almanac.com%2Fplant%2Faloe-vera&docid=MPN7EIhaP3r9wM&tbnid=NSjPc4aaZ6UaZM&vet=12ahUKEwjv7Z_0y7iUAxVqVKQEHUf-Jy8QnPAOegQIFRAB..i&w=1186&h=667&hcb=2&ved=2ahUKEwjv7Z_0y7iUAxVqVKQEHUf-Jy8QnPAOegQIFRAB",
+            "price": 900
+        },
+
+        {
+            "id": 2,
+            "name": "Tomato",
+            "image": "https://www.google.com/imgres?q=tomato%20plant&imgurl=https%3A%2F%2Ffarmtojar.com%2Fwp-content%2Fuploads%2F2012%2F08%2FD867D2E3-8B98-42E6-828D-FBBF8B7405D5-785x850.jpeg&imgrefurl=https%3A%2F%2Ffarmtojar.com%2Fgrowing-heirloom-tomatoes-in-pots%2F&docid=Fz8tq-VVZE-6jM&tbnid=8mEJLxlqBc_m6M&vet=12ahUKEwjUm-fjzLiUAxUhOfsDHVG3CF8QnPAOegQIHhAB..i&w=785&h=850&hcb=2&ved=2ahUKEwjUm-fjzLiUAxUhOfsDHVG3CF8QnPAOegQIHhAB",
+            "price": 900
+        }
+    ]
+
+}
