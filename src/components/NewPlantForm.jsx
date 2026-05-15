@@ -1,13 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 
-function NewPlantForm() {
+// NewPlantForm handles local form state and notifies parent via `onAddPlant`.
+// Props:
+// - onAddPlant(newPlant): function to call with the new plant object when form submits.
+function NewPlantForm({ onAddPlant }) {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+
+  // Validate and submit form data to parent handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name || !image || !price) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const newPlant = {
+      name,
+      image,
+      price,
+    };
+
+    // Delegate POST and state update to parent component
+    onAddPlant(newPlant);
+
+    // Clear form inputs
+    setName("");
+    setImage("");
+    setPrice("");
+  };
+
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
-      <form>
-        <input type="text" name="name" placeholder="Plant name" />
-        <input type="text" name="image" placeholder="Image URL" />
-        <input type="number" name="price" step="0.01" placeholder="Price" />
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Plant name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input 
+          type="text" 
+          name="image" 
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <input 
+          type="number" 
+          name="price" 
+          step="0.01" 
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
         <button type="submit">Add Plant</button>
       </form>
     </div>
