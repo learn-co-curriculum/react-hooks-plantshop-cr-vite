@@ -3,12 +3,16 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-function PlantPage() {
+function PlantPage() { 
+  const [search, setSearch] = useState("");
+  const filteredPlants = plants.filter((plant) =>
+  plant.name.toLowerCase().includes(search.toLowerCase())
+);
   return (
     <main>
       <NewPlantForm />
       <Search />
-      <PlantList />
+      <PlantList plants={filteredPlants} />
     </main>
   );
 }
