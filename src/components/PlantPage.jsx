@@ -41,6 +41,7 @@ function PlantPage() {
           }
           return plant;
         });
+
         setPlants(updatedPlants);
       });
   }
@@ -52,8 +53,16 @@ function PlantPage() {
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
-      <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      <PlantList plants={displayedPlants} onUpdatePlant={handleUpdatePlant} />
+
+      <Search
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+      />
+
+      <PlantList
+        plants={displayedPlants}
+        onUpdatePlant={handleUpdatePlant}
+      />
     </main>
   );
 }
