@@ -1,6 +1,11 @@
 import React from "react";
 
-function Search() {
+function Search({ searchValue, onSearchChange }) {
+  // Handle search input changes and filter plants in real-time
+  function handleChange(event) {
+    onSearchChange(event.target.value);
+  }
+
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>
@@ -8,7 +13,8 @@ function Search() {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => console.log("Searching...")}
+        value={searchValue}
+        onChange={handleChange}
       />
     </div>
   );
