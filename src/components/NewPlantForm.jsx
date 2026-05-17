@@ -9,10 +9,9 @@ function NewPlantForm({ plants, setPlants }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPlant = {
-      id: plants.length + 1,
       name,
       image,
-      price: parseFloat(price),
+      price
     };
     fetch("http://localhost:6001/plants", {
 
