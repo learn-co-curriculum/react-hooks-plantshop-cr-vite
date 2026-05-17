@@ -1,93 +1,197 @@
-# Phase 2 Code Challenge: Plantsy
+# 🌱 Plantsy App
 
-## Demo
+## Description
 
-Use this gif as an example of how the app should work.
+Plantsy is a React application that allows users to browse and manage a collection of plants. Users can view available plants, search for plants by name, add new plants using a form, and mark plants as sold out.
 
-![Demo GIF](./demo.gif)
+This project was built using React Hooks and JSON Server as part of a React code challenge to practice state management, component structure, and working with APIs.
 
-## Instructions
+---
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Screenshot
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+Add a screenshot of the completed application below:
 
-## Setup
+![Plantsy Screenshot](./README-assets/plantshop-homepage.png)
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+---
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+## Features
 
-## Endpoints
+- Displays all plants on page load
+- Search plants by name
+- Add new plants dynamically
+- Mark plants as sold out
+- Updates UI without refreshing the page
 
-The base URL for your backend is: `http://localhost:6001`
+---
 
-## Deliverables
+## Technologies Used
 
-As a user:
+- React
+- JavaScript (ES6)
+- HTML
+- CSS
+- JSON Server
+- Vite
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+---
 
-### Endpoints for Core Deliverables
+## Installation
 
-#### GET /plants
+Clone the repository:
 
-Example Response:
+```bash
+git clone <your-repository-link>
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
-```
+Move into the project directory:
 
-#### POST `/plants`
+cd react-hooks-plantshop-cr-vite
 
-Required Headers:
+Install project dependencies:
 
-```js
-{
-  "Content-Type": "application/json"
-}
-```
+npm install
 
-Request Object:
+Start the JSON server:
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
+npm run server
 
-Example Response:
+Start the React application:
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+npm run dev
+Usage
+
+Open the application in the browser.
+
+Users can:
+
+View available plants
+Search plants using the search bar
+Add a new plant using the form
+Mark plants as sold out
+Project Structure
+src/
+│
+├── components/
+│   ├── PlantCard.jsx
+│   ├── PlantList.jsx
+│   ├── PlantPage.jsx
+│   ├── Search.jsx
+│   └── NewPlantForm.jsx
+│
+├── App.jsx
+└── index.css
+Learning Goals
+
+This project helped me practice:
+
+React Hooks (useState, useEffect)
+State management
+Props
+Event handling
+Form handling# 🌱 Plantsy App
+
+## Description
+
+Plantsy is a React application that allows users to browse and manage a collection of plants. Users can view available plants, search for plants by name, add new plants using a form, and mark plants as sold out.
+
+This project was built using React Hooks and JSON Server as part of a React code challenge to practice state management, component structure, and working with APIs.
+
+---
+
+## Screenshot
+
+Add a screenshot of the completed application below:
+
+![Plantsy Screenshot](./README-assets/plantshop-homepage.png)
+
+---
+
+## Features
+
+- Displays all plants on page load
+- Search plants by name
+- Add new plants dynamically
+- Mark plants as sold out
+- Updates UI without refreshing the page
+
+---
+
+## Technologies Used
+
+- React
+- JavaScript (ES6)
+- HTML
+- CSS
+- JSON Server
+- Vite
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <your-repository-link>
+
+Move into the project directory:
+
+cd react-hooks-plantshop-cr-vite
+
+Install project dependencies:
+
+npm install
+
+Start the JSON server:
+
+npm run server
+
+Start the React application:
+
+npm run dev
+Usage
+
+Open the application in the browser.
+
+Users can:
+
+View available plants
+Search plants using the search bar
+Add a new plant using the form
+Mark plants as sold out
+Project Structure
+src/
+│
+├── components/
+│   ├── PlantCard.jsx
+│   ├── PlantList.jsx
+│   ├── PlantPage.jsx
+│   ├── Search.jsx
+│   └── NewPlantForm.jsx
+│
+├── App.jsx
+└── index.css
+Learning Goals
+
+This project helped me practice:
+
+React Hooks (useState, useEffect)
+State management
+Props
+Event handling
+Form handling
+Fetch requests
+Working with APIs
+Future Improvements
+
+Possible improvements for future versions:
+
+Add delete functionality
+Add edit functionality
+Add plant categories
+Add user authentication
+Connect to a real backend database
+Author
+
+Thomas Komora Buko
