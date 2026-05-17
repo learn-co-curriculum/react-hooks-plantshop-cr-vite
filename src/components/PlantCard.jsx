@@ -1,15 +1,25 @@
-import React from "react";
+function PlantCard({ plant, onUpdatePlant }) {
+  function handleSoldOut() {
+    const updatedPlant = {
+      ...plant,
+      inStock: false,
+    };
 
-function PlantCard() {
+    onUpdatePlant(updatedPlant);
+  }
+
   return (
     <li className="card" data-testid="plant-item">
-      <img src={"https://via.placeholder.com/400"} alt={"plant name"} />
-      <h4>{"plant name"}</h4>
-      <p>Price: {"plant price"}</p>
-      {true ? (
-        <button className="primary">In Stock</button>
+      <img src={plant.image} alt={plant.name} />
+
+      <h4>{plant.name}</h4>
+
+      <p>Price: {plant.price}</p>
+
+      {plant.inStock !== false ? (
+        <button onClick={handleSoldOut}>In Stock</button>
       ) : (
-        <button>Out of Stock</button>
+        <button disabled>Out of Stock</button>
       )}
     </li>
   );
