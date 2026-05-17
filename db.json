@@ -1,46 +1,70 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "id": 8,
+      "name": "COFFEE",
+      "image": "https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwUExBTlR8ZW58MHx8MHx8fDA%3D",
+      "price": 30.98
+    },
+    {
+      "id": 9,
+      "name": "COFFEE",
+      "image": "https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwUExBTlR8ZW58MHx8MHx8fDA%3D",
+      "price": 30.98
+    },
+    {
+      "id": 10,
+      "name": "COFFEE",
+      "image": "https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwUExBTlR8ZW58MHx8MHx8fDA%3D",
+      "price": 30.98
+    },
+    {
+      "id": 11,
+      "name": "COFFEE",
+      "image": "https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwUExBTlR8ZW58MHx8MHx8fDA%3D",
+      "price": 30.98
     }
   ]
 }
