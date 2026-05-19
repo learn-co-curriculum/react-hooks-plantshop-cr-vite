@@ -1,46 +1,77 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Stinging Nettle",
+      "image": "https://images.pexels.com/photos/37344740/pexels-photo-37344740.jpeg",
+      "price": 42,
+      "id": "tOEKd5q7ni8"
+    },
+    {
+      "name": "Sativa",
+      "image": "https://images.pexels.com/photos/36874658/pexels-photo-36874658.jpeg",
+      "price": 67,
+      "id": "9UllVjvh8dQ"
+    },
+    {
+      "name": "Venus",
+      "image": "https://images.pexels.com/photos/12463886/pexels-photo-12463886.jpeg",
+      "price": 33,
+      "id": "caJ_w1dOosw"
+    },
+    {
+      "name": "Mustard",
+      "image": "https://images.pexels.com/photos/29592811/pexels-photo-29592811.jpeg",
+      "price": 76,
+      "id": "czpqFNzdkFE"
+    },
+    {
+      "name": "oxalis",
+      "image": "www.thafai:img/thaf",
+      "price": "42",
+      "id": "9HaVcBsTk6I"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
