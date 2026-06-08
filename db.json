@@ -41,6 +41,48 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "",
+      "image": "",
+      "price": null,
+      "id": 8
+    },
+    {
+      "name": "",
+      "image": "",
+      "price": null,
+      "id": 9
+    },
+    {
+      "name": "",
+      "image": "",
+      "price": null,
+      "id": 10
+    },
+    {
+      "name": "",
+      "image": "",
+      "price": null,
+      "id": 11
+    },
+    {
+      "name": "Cactus",
+      "image": "",
+      "price": 15.71,
+      "id": 12
+    },
+    {
+      "name": "Cactus",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.4G5ICo3SkzSAvWXaLo9m9QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "price": 15.71,
+      "id": 13
+    },
+    {
+      "name": "Cactus",
+      "image": "",
+      "price": null,
+      "id": 14
     }
   ]
 }
