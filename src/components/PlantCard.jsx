@@ -1,6 +1,7 @@
 import React from "react";
 
 function PlantCard( {plant, updatePlant} ) {
+
   function handleToggleStock() {
   fetch(`http://localhost:6001/plants/${plant.id}`, {
     method: "PATCH",
@@ -12,8 +13,9 @@ function PlantCard( {plant, updatePlant} ) {
     }),
   })
     .then((response) => response.json())
-    .then((updatedPlant) => {
-      updatePlant(updatedPlant);
+    .then(() => {
+      updatePlant({...plant, inStock: !plant.inStock});
+     
     });
 }
   return (

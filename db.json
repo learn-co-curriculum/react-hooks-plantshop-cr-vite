@@ -17,7 +17,8 @@
       "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
-      "price": 5.99
+      "price": 5.99,
+      "inStock": true
     },
     {
       "id": "4",

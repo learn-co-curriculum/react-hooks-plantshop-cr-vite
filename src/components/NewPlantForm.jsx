@@ -17,7 +17,6 @@ function NewPlantForm( {addPlant} ) {
       },
       body: JSON.stringify({
         ...formData,
-        price: Number(formData.price),
       }),
     })
     .then((response) => response.json())
