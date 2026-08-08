@@ -10,16 +10,21 @@ function PlantPage() {
   useEffect(() => {
     fetch("http://localhost:6001/plants")
       .then((response) => response.json())
-      .then((data) => setPlants(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        setPlants(data);})
+      .catch((error) => {
+        console.error("Error fetching plants:", error);
+      });
   }, []);
+
+  function handleAddPlant(newPlant) {
+    setPlants((currentPlants) => [...currentPlants, newPlant]);
+  }
 
   const filteredPlants = plants.filter((plant) =>
     plant.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  function handleAddPlant(newPlant) {
-    setPlants((currentPlants) => [...currentPlants, newPlant]);
-  }
+  
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
