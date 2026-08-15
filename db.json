@@ -1,46 +1,58 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "id": "e54d",
+      "name": "Lemon Cypress",
+      "image": "https://thefarm.co.ke/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-16-at-1.33.22-PM-2.jpeg",
+      "price": "5.01"
+    },
+    {
+      "id": "f803",
+      "name": " BloomsFlora",
+      "image": "https://cdn.bloomsflora.com/uploads/product/bloomsflora/JUL2025/FleshySyngoniumPlant-1753768669010.webp",
+      "price": "48"
     }
   ]
 }
