@@ -1,93 +1,224 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantshop
 
-## Demo
+Plantshop is a React application for browsing and managing plants in a simple online plant shop. The application connects a React frontend to a JSON Server backend and allows users to view, add, search, and mark plants as out of stock.
 
-Use this gif as an example of how the app should work.
+## About the Project
 
-![Demo GIF](./demo.gif)
+This project was built as part of a React Hooks lab focused on connecting a frontend application to a backend and managing application state with React.
 
-## Instructions
+The main objectives were to:
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+- Fetch plant data from a backend when the application loads.
+- Add new plants through a form.
+- Mark plants as out of stock using React state.
+- Search and filter plants by name.
+- Practice passing data and functions between React components.
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Features
 
-## Setup
+### View Plants
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+All plants are fetched from the backend when the application loads and displayed as plant cards.
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+### Add a New Plant
 
-## Endpoints
+Users can add a new plant by entering:
 
-The base URL for your backend is: `http://localhost:6001`
+- Plant name
+- Image URL
+- Price
 
-## Deliverables
+The form sends the new plant to the backend using a `POST` request and updates the page with the newly added plant.
 
-As a user:
+### Mark a Plant as Out of Stock
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+Users can click the **In Stock** button on a plant card to mark the plant as **Out of Stock**.
 
-### Endpoints for Core Deliverables
+The sold-out status is managed using React state and is not persisted to the backend.
 
-#### GET /plants
+### Search Plants
 
-Example Response:
+Users can search for plants by name. The displayed plants are filtered according to the search query.
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+When the search field is cleared, all plants are displayed again.
+
+## Technologies Used
+
+- React
+- JavaScript
+- React Hooks
+- `useState`
+- `useEffect`
+- Fetch API
+- JSON Server
+- Vite
+- CSS
+- Vitest
+- React Testing Library
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── App.jsx
+│   ├── Header.jsx
+│   ├── NewPlantForm.jsx
+│   ├── PlantCard.jsx
+│   ├── PlantList.jsx
+│   ├── PlantPage.jsx
+│   └── Search.jsx
+│
+├── __tests__/
+│   └── test_suites/
+│
+├── index.css
+└── main.jsx
+
+db.json
+package.json
 ```
 
-#### POST `/plants`
+## Getting Started
 
-Required Headers:
+### 1. Clone the repository
 
-```js
-{
-  "Content-Type": "application/json"
-}
+```bash
+git clone <your-repository-url>
 ```
 
-Request Object:
+### 2. Navigate into the project
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+```bash
+cd react-hooks-plantshop-cr-vite
 ```
 
-Example Response:
+### 3. Install dependencies
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
+```bash
+npm install
 ```
+
+### 4. Start the backend
+
+Open a terminal and run:
+
+```bash
+npm run server
+```
+
+The JSON Server backend runs on:
+
+```text
+http://localhost:6001
+```
+
+### 5. Start the React application
+
+Open another terminal and run:
+
+```bash
+npm run dev
+```
+
+Open the local Vite URL shown in the terminal.
+
+## Running Tests
+
+To run the test suite:
+
+```bash
+npm run test
+```
+
+The application currently passes all automated tests:
+
+```text
+Test Files  5 passed (5)
+Tests       10 passed (10)
+```
+
+## How the Application Works
+
+The main plant data is managed in `PlantPage`.
+
+When the page loads, `useEffect` sends a `GET` request to the backend:
+
+```text
+React Application
+       |
+       v
+GET /plants
+       |
+       v
+JSON Server
+       |
+       v
+Plant data
+       |
+       v
+PlantPage state
+       |
+       v
+PlantList
+       |
+       v
+PlantCard
+```
+
+When a user adds a plant, the application sends a `POST` request:
+
+```text
+NewPlantForm
+       |
+       v
+PlantPage
+       |
+       v
+POST /plants
+       |
+       v
+JSON Server
+       |
+       v
+Updated plant list
+```
+
+Search functionality filters the plants currently stored in React state.
+
+## Application Screenshot
+
+Add a screenshot of the completed application below:
+
+```markdown
+![Plantshop Application](./screenshots/plantshop.png)
+```
+
+Place the screenshot in a `screenshots` folder:
+
+```text
+screenshots/
+└── plantshop.png
+```
+
+## Learning Outcomes
+
+Through this project, I practiced:
+
+- Managing React state with `useState`.
+- Fetching backend data with `fetch`.
+- Running side effects with `useEffect`.
+- Handling form submissions with `onSubmit`.
+- Passing props between components.
+- Rendering lists with `.map()`.
+- Filtering data with JavaScript `.filter()` and `.includes()`.
+- Using conditional rendering.
+- Connecting a React frontend to a JSON Server backend.
+- Testing React components with Vitest and React Testing Library.
+- Using Git and GitHub for version control.
+
+## Author
+
+**Tracy **
+
+Built as part of a React Hooks learning project.
