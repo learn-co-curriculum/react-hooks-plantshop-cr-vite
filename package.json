@@ -10,7 +10,7 @@
     "react-dom": "^18.3.1"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "server": "json-server db.json -p 6001",
     "test": "vitest"
   },
