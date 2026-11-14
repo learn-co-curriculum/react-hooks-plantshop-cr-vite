@@ -1,10 +1,16 @@
 import React from "react";
-import PlantCard from "./PlantCard";
+import NewPlantForm from "./NewPlantForm";
+import PlantList from "./PlantList";
+import Search from "./Search";
 
-function PlantList() {
+function PlantPage({ plants, onAddPlant, searchTerm, onSearchChange }) {
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <main>
+      <NewPlantForm onAddPlant={onAddPlant} />
+      <Search searchTerm={searchTerm} onSearchChange={onSearchChange} />
+      <PlantList plants={plants} />
+    </main>
   );
 }
 
-export default PlantList;
+export default PlantPage;
