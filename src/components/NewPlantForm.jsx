@@ -24,7 +24,6 @@ function NewPlantForm({ onAddPlant }) {
       .then((res) => res.json())
       .then((createdPlant) => {
         onAddPlant(createdPlant);
-        // Reset form fields after submission
         setName("");
         setImage("");
         setPrice("");

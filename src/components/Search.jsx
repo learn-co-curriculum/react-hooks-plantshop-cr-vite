@@ -1,3 +1,5 @@
+import React from "react";
+
 function Search({ searchTerm, onSearchChange }) {
   return (
     <div className="searchbar">
@@ -12,3 +14,5 @@ function Search({ searchTerm, onSearchChange }) {
     </div>
   );
 }
+
+export default Search;
