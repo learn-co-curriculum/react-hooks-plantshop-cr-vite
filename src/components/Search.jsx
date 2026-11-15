@@ -1,6 +1,7 @@
 import React from "react";
 
 function Search() {
+  const displayedPlants = plants.filter((plant) => plant.name.toLowerCase().includes(searchTerm.toLowerCase()));
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>

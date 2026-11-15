@@ -32,6 +32,7 @@ price: price
     </div>
   );
 }
+
 function addNewPlant(newPlant) {
   fetch("http://localhost:6001/plants", {
     method: "POST",
@@ -45,4 +46,6 @@ function addNewPlant(newPlant) {
       setPlants([...plants, addedPlant]);
     });
 }
+
+
 export default NewPlantForm;
