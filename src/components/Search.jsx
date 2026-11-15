@@ -1,7 +1,7 @@
 import React from "react";
 
-function Search() {
-  const displayedPlants = plants.filter((plant) => plant.name.toLowerCase().includes(searchTerm.toLowerCase()));
+function Search( {searchTerm, onSearchChange}) {
+ 
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>
@@ -9,7 +9,7 @@ function Search() {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => console.log("Searching...")}
+        onChange={(e) => onSearchChange(e.target.value)}
       />
     </div>
   );
