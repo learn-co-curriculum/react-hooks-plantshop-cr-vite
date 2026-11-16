@@ -1,87 +1,60 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy 🌱
 
-## Demo
+Plantsy is a React admin app for a plant store. It connects to a JSON Server backend so you can view, add, and search plants.
 
-Use this gif as an example of how the app should work.
+![Plantsy screenshot](./screenshot.png)
 
-![Demo GIF](./demo.gif)
+## Features
 
-## Instructions
+- **View all plants**: plants are fetched from the backend with `useEffect` when the page loads.
+- **Add a plant**: submit the form to send a `POST` request to the backend and show the new plant instantly.
+- **Mark as sold out**: each plant card has an "In Stock" button that switches to "Out of Stock" (not saved to the backend).
+- **Search**: filter plants by name as you type. Clearing the search shows all plants again.
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Tech Stack
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+- React (hooks: `useState`, `useEffect`)
+- Vite
+- JSON Server
+- Vitest and React Testing Library
 
-## Setup
+## Getting Started
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+1. Clone the repository:
+   ```
+   git clone <your-repo-url>
+   cd react-hooks-plantshop-cr-vite
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the backend (runs on port 6001):
+   ```
+   npm run server
+   ```
+4. In a second terminal, start the app:
+   ```
+   npm run dev
+   ```
+5. Open the URL shown in the terminal (usually http://localhost:5173).
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+To check the backend, visit http://localhost:6001/plants.
 
-## Endpoints
+## Running Tests
 
-The base URL for your backend is: `http://localhost:6001`
-
-## Deliverables
-
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```
+npm run test
 ```
 
-#### POST `/plants`
+## API Endpoints
 
-Required Headers:
+| Method | Endpoint  | Description        |
+| ------ | --------- | ------------------ |
+| GET    | `/plants` | Get all plants     |
+| POST   | `/plants` | Create a new plant |
 
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
-
-Example Response:
+Example plant:
 
 ```json
 {
@@ -91,3 +64,20 @@ Example Response:
   "price": 15.99
 }
 ```
+
+## Project Structure
+
+```
+src/components/
+├── App.jsx
+├── Header.jsx
+├── PlantPage.jsx      # fetches plants, holds plants and search state
+├── NewPlantForm.jsx   # form that POSTs a new plant
+├── Search.jsx         # search input
+├── PlantList.jsx      # renders the list of plants
+└── PlantCard.jsx      # single plant with in-stock toggle
+```
+
+## Author
+
+Sean Simiyu
