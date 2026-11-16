@@ -8,13 +8,13 @@ describe('2nd Deliverable', () => {
         global.setFetchResponse(global.basePlants)
         const { getByPlaceholderText, findByText, getByText } = render(<App />)
 
-        const firstPlant = {name: 'foo', image: 'foo_plant_image_url', price: '10'}
+        const firstPlant = {name: 'foo', image: 'foo_plant_image_url', price: 10}
     
         global.setFetchResponse({...firstPlant, id: "184298qfhquhf92"})
     
         fireEvent.change(getByPlaceholderText('Plant name'), { target: { value: firstPlant.name } });
         fireEvent.change(getByPlaceholderText('Image URL'), { target: { value: firstPlant.image } });
-        fireEvent.change(getByPlaceholderText('Price'), { target: { value: firstPlant.price } });
+        fireEvent.change(getByPlaceholderText('Price'), { target: { value: String(firstPlant.price) } });
         fireEvent.click(getByText('Add Plant'))
 
         expect(fetch).toHaveBeenCalledWith("http://localhost:6001/plants", {
@@ -28,13 +28,13 @@ describe('2nd Deliverable', () => {
         const newPlant = await findByText('foo');
         expect(newPlant).toBeInTheDocument();
 
-        const secondPlant = {name: 'bar', image: 'bar_plant_image_url', price: '5'}
+        const secondPlant = {name: 'bar', image: 'bar_plant_image_url', price: 5}
     
         global.setFetchResponse({...secondPlant, id: "3810fqhrquhf9fnqnc0"})
     
         fireEvent.change(getByPlaceholderText('Plant name'), { target: { value: secondPlant.name } });
         fireEvent.change(getByPlaceholderText('Image URL'), { target: { value: secondPlant.image } });
-        fireEvent.change(getByPlaceholderText('Price'), { target: { value: secondPlant.price } });
+        fireEvent.change(getByPlaceholderText('Price'), { target: { value: String(secondPlant.price) } });
         fireEvent.click(getByText('Add Plant'))
     
         expect(fetch).toHaveBeenCalledWith("http://localhost:6001/plants", {
