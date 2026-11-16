@@ -1,5 +1,5 @@
 import React from "react";
-
+//search function component that takes in searchTerm and onSearchChange as props//
 function Search( {searchTerm, onSearchChange}) {
  
   return (
@@ -9,6 +9,7 @@ function Search( {searchTerm, onSearchChange}) {
         type="text"
         id="search"
         placeholder="Type a name to search..."
+        value={searchTerm}
         onChange={(e) => onSearchChange(e.target.value)}
       />
     </div>
