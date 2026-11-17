@@ -1,13 +1,68 @@
-import React from "react";
 
-function NewPlantForm() {
+import React, { useState } from "react";
+
+function NewPlantForm({ onAddPlant }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    image: "",
+    price: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setFormData((currentData) => ({
+      ...currentData,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      await onAddPlant(formData);
+
+      setFormData({
+        name: "",
+        image: "",
+        price: "",
+      });
+    } catch (error) {
+      console.error("Error adding plant:", error);
+    }
+  }
+
   return (
     <div className="new-plant-form">
       <h2>New Plant</h2>
-      <form>
-        <input type="text" name="name" placeholder="Plant name" />
-        <input type="text" name="image" placeholder="Image URL" />
-        <input type="number" name="price" step="0.01" placeholder="Price" />
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Plant name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          name="image"
+          placeholder="Image URL"
+          value={formData.image}
+          onChange={handleChange}
+        />
+
+        <input
+          type="number"
+          name="price"
+          step="0.01"
+          placeholder="Price"
+          value={formData.price}
+          onChange={handleChange}
+        />
+
         <button type="submit">Add Plant</button>
       </form>
     </div>
