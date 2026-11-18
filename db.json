@@ -1,46 +1,58 @@
 {
   "plants": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Aloe",
       "image": "./images/aloe.jpg",
       "price": 15.99
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ZZ Plant",
       "image": "./images/zz-plant.jpg",
       "price": 25.98
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pilea peperomioides",
       "image": "./images/pilea.jpg",
       "price": 5.99
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pothos",
       "image": "./images/pothos.jpg",
       "price": 12.11
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Jade",
       "image": "./images/jade.jpg",
       "price": 10.37
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "id": "604d",
+      "name": "fff",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSt642Ik_5QORjAg18Vmcpmy-UnIYIJFQ-eZv-Wko7x5Juj-r1hVq4k9VEFyhW2jKq0O_G8P-a7stEmGX9V5Ddov0V66D1AhYCMrC_Ng0cXbhXotjQN_vwf&usqp=CAc",
+      "price": 78
+    },
+    {
+      "id": "fa9a",
+      "name": "palm ",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_0Fv9JZKJjtxeEF3a-vwTTfERwFfJ98enDLE-vaGKsq_adoSE3EF3rCyfrskaQ5TyMfmrVJ0jr5bmBVISVP8unQU8jZ1Q5k84HykC7A33UVoAUTezT0HaLDXMCgz4O2Wt9CVJCOE&usqp=CAc",
+      "price": 89
     }
   ]
 }
