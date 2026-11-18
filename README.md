@@ -1,20 +1,11 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy
 
-## Demo
+Plantsy is a React plant shop app that lets you view the plants in the store,
+add a new plant, mark plants out of stock, and search for plants by name.
 
-Use this gif as an example of how the app should work.
+## Screenshot
 
-![Demo GIF](./demo.gif)
-
-## Instructions
-
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
-
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+![Plantshop Screenshot](./screenshot.png)
 
 ## Setup
 
@@ -23,7 +14,7 @@ find the [Deliverables](#Deliverables) section.
 3. In a new terminal, run `npm run dev`.
 
 Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+in the browser to verify that your backend is working.
 
 ## Endpoints
 
