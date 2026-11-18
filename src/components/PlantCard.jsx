@@ -6,7 +6,6 @@ function PlantCard({ plant, onSoldOut }) {
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <p>Price: {price}</p>
-
       {soldOut ? (
         <button>Out of Stock</button>
       ) : (

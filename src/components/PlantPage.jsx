@@ -7,31 +7,27 @@ function PlantPage() {
   const [plants, setPlants] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Task: See all plants on page load
   useEffect(() => {
     fetch("http://localhost:6001/plants")
-      .then((res) => res.json())
-      .then((data) => setPlants(data));
+      .then((r) => r.json())
+      .then((plantsArray) => {
+        setPlants(plantsArray);
+      });
   }, []);
 
-  // Task: Add a new plant
   function handleAddPlant(newPlant) {
-    setPlants([...plants, newPlant]);
+    setPlants((currentPlants) => [...currentPlants, newPlant]);
   }
 
-  // Task: Mark a plant as sold out (non-persisting)
   function handleSoldOut(id) {
-    const updatedPlants = plants.map((plant) => {
-      if (plant.id === id) {
-        return { ...plant, soldOut: true };
-      }
-      return plant;
-    });
-    setPlants(updatedPlants);
+    setPlants((currentPlants) =>
+      currentPlants.map((plant) =>
+        plant.id === id ? { ...plant, soldOut: true } : plant
+      )
+    );
   }
 
-  // Task: Search / filter plants
-  const plantsToDisplay = plants.filter((plant) =>
+  const displayedPlants = plants.filter((plant) =>
     plant.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -39,7 +35,7 @@ function PlantPage() {
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
       <Search search={search} onSearchChange={setSearch} />
-      <PlantList plants={plantsToDisplay} onSoldOut={handleSoldOut} />
+      <PlantList plants={displayedPlants} onSoldOut={handleSoldOut} />
     </main>
   );
 }

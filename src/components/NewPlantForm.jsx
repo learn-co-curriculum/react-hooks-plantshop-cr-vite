@@ -8,23 +8,20 @@ function NewPlantForm({ onAddPlant }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const plantData = {
-      name: name,
-      image: image,
-      price: parseFloat(price),
-    };
-
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(plantData),
+      body: JSON.stringify({
+        name: name,
+        image: image,
+        price: parseFloat(price),
+      }),
     })
-      .then((res) => res.json())
+      .then((r) => r.json())
       .then((newPlant) => {
         onAddPlant(newPlant);
-        // reset the form
         setName("");
         setImage("");
         setPrice("");
