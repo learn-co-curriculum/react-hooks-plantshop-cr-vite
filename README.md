@@ -1,93 +1,58 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy
 
-## Demo
+A plant shop admin app built with React. It connects to a JSON Server backend so plants are loaded from, and saved to, an API.
 
-Use this gif as an example of how the app should work.
+## Features
 
-![Demo GIF](./demo.gif)
+- See all plants when the app loads
+- Add a new plant using the form (saved to the backend)
+- Mark a plant as "Out of Stock" (this is not saved to the backend)
+- Search plants by name to see a filtered list
 
-## Instructions
+## Screenshot
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+![Plantsy screenshot](./screenshot.png)
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Tech Stack
 
-## Setup
+- React (Vite)
+- JSON Server
+- Vitest and React Testing Library
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+## Getting Started
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+1. Clone the repository:
+   ```
+   git clone <your-repo-url>
+   cd <folder-name>
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the backend (runs on port 6001):
+   ```
+   npm run server
+   ```
+4. In a second terminal, start the app:
+   ```
+   npm run dev
+   ```
+5. Open the link shown in the terminal. To check the backend, visit http://localhost:6001/plants.
 
-## Endpoints
+## Running Tests
 
-The base URL for your backend is: `http://localhost:6001`
-
-## Deliverables
-
-As a user:
-
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
-
-### Endpoints for Core Deliverables
-
-#### GET /plants
-
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```
+npm run test
 ```
 
-#### POST `/plants`
+## API Endpoints
 
-Required Headers:
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/plants` | Get all plants |
+| POST | `/plants` | Add a new plant |
 
-```js
-{
-  "Content-Type": "application/json"
-}
-```
+## Author
 
-Request Object:
-
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
-
-Example Response:
-
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+Peter Mboya
