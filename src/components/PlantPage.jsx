@@ -8,12 +8,13 @@ function PlantPage() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:6001/plants")
-      .then((r) => r.json())
-      .then((plantsArray) => {
-        setPlants(plantsArray);
-      });
-  }, []);
+      fetch("http://localhost:6001/plants")
+        .then((r) => r.json())
+        .then((data) => {
+          // Handle both direct array or wrapped object responses
+          setPlants(Array.isArray(data) ? data : data.plants || []);
+        });
+    }, []);
 
   function handleAddPlant(newPlant) {
     setPlants((currentPlants) => [...currentPlants, newPlant]);
