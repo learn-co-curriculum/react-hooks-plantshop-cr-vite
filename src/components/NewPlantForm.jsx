@@ -8,7 +8,7 @@ function NewPlantForm({ onAddPlant, apiUrl }) {
   function handleSubmit(e) {
     e.preventDefault(); // stop the browser reloading the page
 
-    const newPlant = { name, image, price: parseFloat(price) };
+    const newPlant = { name, image, price };
 
     // POST the new plant to the backend, then add the saved copy to the page.
     fetch(apiUrl, {
