@@ -1,93 +1,103 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy – React Plant Shop
 
-## Demo
+A React application for managing a plant shop. Users can view available plants, add new plants, mark plants as sold out, and search for plants by name.
 
-Use this gif as an example of how the app should work.
+## Features
 
-![Demo GIF](./demo.gif)
+- **View Plants:** Fetch and display all plants from the backend API.
+- **Add Plants:** Submit a form to add new plants.
+- **Stock Management:** Mark plants as out of stock.
+- **Search Plants:** Filter plants by name.
 
-## Instructions
+## Technologies Used
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+- React
+- JavaScript
+- Vite
+- JSON Server
+- HTML and CSS
+- React Hooks (`useState` and `useEffect`)
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Getting Started
 
-## Setup
+### Prerequisites
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+Make sure you have Node.js and npm installed.
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+### Installation
 
-## Endpoints
+1. Clone the repository:
 
-The base URL for your backend is: `http://localhost:6001`
+   ```bash
+   git clone https://github.com/Ivy94Kemmy/react-hooks-plantshop-cr-vite.git
+   ```
 
-## Deliverables
+2. Navigate into the project directory:
 
-As a user:
+   ```bash
+   cd react-hooks-plantshop-cr-vite
+   ```
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+3. Install dependencies:
 
-### Endpoints for Core Deliverables
+   ```bash
+   npm install
+   ```
 
-#### GET /plants
+### Running the Application
 
-Example Response:
+Start the backend server in your first terminal:
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```bash
+npm run server
 ```
 
-#### POST `/plants`
+The backend runs at `http://localhost:6001`.
 
-Required Headers:
+Open a second terminal and start the React application:
 
-```js
-{
-  "Content-Type": "application/json"
-}
+```bash
+npm run dev
 ```
 
-Request Object:
+Open the local URL provided by Vite, usually `http://localhost:5173`.
 
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+## API Endpoints
+
+The application uses JSON Server to manage plant data.
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/plants` | Retrieve all plants |
+| POST | `/plants` | Add a new plant |
+
+Base API URL: `http://localhost:6001`
+
+## Running Tests
+
+Run the test suite with:
+
+```bash
+npm run test -- --run
 ```
 
-Example Response:
+## Project Structure
 
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
+```text
+src/
+├── components/
+│   ├── NewPlantForm.jsx
+│   ├── PlantCard.jsx
+│   ├── PlantList.jsx
+│   ├── PlantPage.jsx
+│   └── Search.jsx
+├── App.jsx
+└── main.jsx
+
+db.json
+package.json
 ```
+
+## Author
+
+Developed as part of the React Hooks Plant Shop Code Challenge.
