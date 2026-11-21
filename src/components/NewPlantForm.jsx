@@ -7,6 +7,7 @@ function NewPlantForm({ onAddPlant }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const plantData = {
       name,
       image,
