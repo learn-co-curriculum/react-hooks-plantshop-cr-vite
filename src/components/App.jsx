@@ -9,16 +9,23 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:6001/plants")
       .then((res) => res.json())
-      .then((data) => setPlants(data));
-  }, []);
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setPlants(data);
+        }
+      })
+      .catch((err) => console.error(err));
+    }, []);
 
   const handleAddPlant = (newPlant) => {
     setPlants((prevPlants) => [...prevPlants, newPlant]);
   };
 
-  const filteredPlants = plants.filter((plant) =>
-    plant.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPlants = Array.isArray(plants)
+  ? plants.filter((plant) =>
+      (plant.name || "").toLowerCase().includes((searchTerm || "").toLowerCase())
+    )
+  : [];
 
   return (
     <div className="app">
